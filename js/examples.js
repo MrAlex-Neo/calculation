@@ -24,8 +24,12 @@ if (es == "amount") {
                     answer = a * b
                     message = `Ваш ответ: ${answer}!` 
                 } else {
-                    answer = a / b
-                    message = `Ваш ответ: ${answer}!`
+                    if (es == "/") {
+                        answer = a / b
+                        message = `Ваш ответ: ${answer}!` 
+                    } else {
+                        message = "Ошибка ввода!"
+                    }
                 }
             }
         }
