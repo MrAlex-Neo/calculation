@@ -42,7 +42,7 @@ const C = document.querySelector("canvas"),
   W = C.width = innerWidth,
   H = C.height = innerHeight 
 
-const str = "お好みのトッピングを用意: しいたけとたけのこを少量の醤油で炒めると風味が増します。 ナルトのさつま",
+const str = "101010101010 01 010 01 001010 01 0100 0100001 01 101 101 101 1010001111011101010101 1 0",
   matrix = str.split('')
 
 let font = 11,
