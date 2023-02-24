@@ -35,7 +35,7 @@ if (es == "amount") {
         }
     }
 }
-// alert(message)
+alert(message)
 
 const C = document.querySelector("canvas"),
   $ = C.getContext("2d"),
