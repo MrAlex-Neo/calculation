@@ -1,8 +1,13 @@
-let a = Number(prompt('Первое число'))
-let b = Number(prompt('Второе число'))
-let es = prompt("Введите наименование задачи: amount (сумма чисел), arith (среднее арифметическое) или если вы хотите воспользоваться калькулятором, то введите арифметическое действие ниже (+, -, *, /)")
+let name = prompt('Ваше имя:')
+let age = +prompt('Укажите ваш возраст:')
+let gender = prompt('Укажите ваш пол (man/woman)')
+let a = Number(prompt('Первое число:'))
+let b = Number(prompt('Второе число:'))
+let es = prompt("Введите наименование задачи: amount (сумма чисел), arith (среднее арифметическое), degree(возвести число в степень), percent(%). Если вы просто хотите воспользоваться калькулятором, то введите ниже арифметическое действие (+, -, *, /)")
 let answer
 let message
+let myAge = 29
+let meet
 
 if (es == "amount") {
     answer = a + b
@@ -28,14 +33,46 @@ if (es == "amount") {
                         answer = a / b
                         message = `Ваш ответ: ${answer}!` 
                     } else {
-                        message = "Ошибка ввода!"
+                        if (es == "percent") {
+                            answer = (a / 100) * b
+                            message = `Ваш ответ: ${answer}%!` 
+                        } else {
+                            if (es == "degree") {
+                                answer = a ** b
+                                message = `Ваш ответ: ${answer}!` 
+                            } else {
+                                message = "Ошибка ввода!"
+                            }
+                            
+                        }
                     }
                 }
             }
         }
     }
 }
-alert(message)
+
+if (age < myAge && gender == "man") {
+    meet = `Привет, ${name}! ${message}`
+} else {
+    if (age > myAge && gender == "man") {
+        meet = `Здравствуйте, ${name}! ${message}`
+    } else {
+        if (age < 18 && gender == "woman") {
+            meet = `Здравствуйте, ${name}! ${message}`
+        } else {
+            if (age < myAge && gender == "woman") {
+                meet = `Привет, ${name}! ${message}    А ваши родители кондитеры? Если нет, то откуда у них тогда взялся такой сладкий пирожочек?) Ну а если серьезно, то нам лучше прододжить наше общение лично. Записывай мой номер, детка: +998900183395 `
+            } else {
+                meet = "Ошибка ввода!"
+            }
+            
+        }
+        
+    }
+    
+}
+alert(meet)
 
 const C = document.querySelector("canvas"),
   $ = C.getContext("2d"),
