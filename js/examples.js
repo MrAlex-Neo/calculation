@@ -52,7 +52,7 @@ if (es == "amount") {
     }
 }
 
-if (age < myAge && gender == "man") {
+if (age <= myAge && gender == "man") {
     meet = `Привет, ${name}! ${message}`
 } else {
     if (age > myAge && gender == "man") {
