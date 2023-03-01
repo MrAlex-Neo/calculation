@@ -103,5 +103,4 @@ function draw() {
 }
 
 setInterval(draw, 123)
-
 window.addEventListener('resize', () => location.reload())
