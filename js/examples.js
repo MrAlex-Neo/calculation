@@ -1,76 +1,73 @@
 let name = prompt('Ваше имя:')
 let age = +prompt('Укажите ваш возраст:')
 let gender = prompt('Укажите ваш пол (man/woman)')
+let es = prompt("Введите наименование задачи: arith (среднее арифметическое), degree(возвести число в степень), percent(%). Если вы просто хотите воспользоваться калькулятором, то введите ниже арифметическое действие (+, -, *, /). Если вы хотите сгенерировать случайный пароль(random), то тогда впишите в поле для ввода первого числа слово 'password', а в поле для второго числа укажите из скольки чисел должен будет состоять пароль")
 let a = Number(prompt('Первое число:'))
 let b = Number(prompt('Второе число:'))
-let es = prompt("Введите наименование задачи: amount (сумма чисел), arith (среднее арифметическое), degree(возвести число в степень), percent(%). Если вы просто хотите воспользоваться калькулятором, то введите ниже арифметическое действие (+, -, *, /)")
 let answer
 let message
 let myAge = 29
 let meet
 
-if (es == "amount") {
-    answer = a + b
-    message = `Ваш ответ: ${answer}!`
-} else {
-    if (es == "arith") {
+switch (es){
+    case 'arith':
         answer = (a + b) / 2
         message = `Ваш ответ: ${answer}!`
-    } else {
-        if (es == "+") {
-            answer = a + b
-            message = `Ваш ответ: ${answer}!`      
-        } else {
-            if (es == "-") {
-                answer = a - b
-                message = `Ваш ответ: ${answer}!`  
-            } else {
-                if (es == "*") {
-                    answer = a * b
-                    message = `Ваш ответ: ${answer}!` 
-                } else {
-                    if (es == "/") {
-                        answer = a / b
-                        message = `Ваш ответ: ${answer}!` 
-                    } else {
-                        if (es == "percent") {
-                            answer = (a / 100) * b
-                            message = `Ваш ответ: ${answer}%!` 
-                        } else {
-                            if (es == "degree") {
-                                answer = a ** b
-                                message = `Ваш ответ: ${answer}!` 
-                            } else {
-                                message = "Ошибка ввода!"
-                            }
-                            
-                        }
-                    }
-                }
-            }
-        }
-    }
+        break;
+    case 'degree':
+        answer = Math.pow(a,b)
+        message = `Ваш ответ: ${answer}!`
+        break;
+    case 'percent':
+        answer = (a / 100) * b
+        message = `Ваш ответ: ${answer}!`
+        break;
+    case '+':
+        answer = a + b
+        message = `Ваш ответ: ${answer}!`
+        break;
+    case '-':
+        answer = a - b
+        message = `Ваш ответ: ${answer}!`
+        break;
+    case '*':
+        answer = a * b
+        message = `Ваш ответ: ${answer}!`
+        break;
+    case '/':
+        answer = a / b
+        message = `Ваш ответ: ${answer}!`
+        break;
+    case 'random':
+        a = 'password'
+        answer = Math.random()
+        b = Math.pow(10,b)
+        answer = answer * b
+        answer = Math.trunc(answer)
+        message = `Ваш ответ: ${answer}!`
+        break;
+    case false:
+        message = "Ошибка ввода!"
+        break; 
 }
+message = `Ваш ответ: ${answer}!`
 
 if (age <= myAge && gender == "man") {
     meet = `Привет, ${name}! ${message}`
 } else {
-    if (age > myAge && gender == "man") {
+    if ((age > myAge && gender == "man") || (age >= myAge && gender == "woman")) {
         meet = `Здравствуйте, ${name}! ${message}`
     } else {
-        if (age < 18 && gender == "woman") {
-            meet = `Здравствуйте, ${name}! ${message}`
+        meet = `Здравствуйте, ${name}! ${message}`
+        if (age < 18  && gender == "woman") {
         } else {
             if (age < myAge && gender == "woman") {
                 meet = `Привет, ${name}! ${message} А ваши родители кондитеры? Если нет, то откуда у них тогда взялся такой сладкий пирожочек?) Ну а если серьезно, то нам лучше прододжить наше общение лично. Записывай мой номер, детка: +998900183395 `
             } else {
                 meet = "Ошибка ввода!"
-            }
-            
-        }
-        
-    }
-    
+            }   
+        }   
+    } 
 }
 alert(meet)
 
